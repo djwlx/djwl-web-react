@@ -15,15 +15,37 @@ module.exports = {
     path: path.join(__dirname, "./dist"),
     filename: "main.js",
   },
+
   // 打包优化
   optimization: {
     usedExports: true,
   },
 
+  // 配置
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    alias: {
+      "@": path.join(__dirname, "./src/"),
+    },
+  },
+
   // 配置loader加载器
   module: {
     rules: [
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      {
+        test: /\.(css|scss|sass)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader",
+        ],
+        exclude: /node_modules/,
+      },
       {
         test: /\.tsx?$/,
         use: [
