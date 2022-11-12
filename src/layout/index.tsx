@@ -1,15 +1,11 @@
 import React, { FC } from "react";
 import { routers } from "./routes";
-import { useRoutes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@/css/index.css";
-import DefaultLayout from "@/component/DefaultLayout";
 
+const router = createBrowserRouter(routers);
 const App: FC = () => {
-  return (
-    <>
-      <DefaultLayout>{useRoutes(routers)}</DefaultLayout>
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

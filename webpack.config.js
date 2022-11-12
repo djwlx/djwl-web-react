@@ -39,12 +39,17 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                auto: true,
+                localIdentName:
+                  NODE_ENV === "development"
+                    ? "[path][name]__[local]"
+                    : "[hash:base64]",
+              },
             },
           },
           "sass-loader",
         ],
-        exclude: /node_modules/,
       },
       {
         test: /\.tsx?$/,
@@ -73,7 +78,8 @@ module.exports = {
 
   //webpack-dev-server 的配置信息
   devServer: {
-    open: true,
+    // open: true,
     port: 3000,
+    historyApiFallback: true,
   },
 };

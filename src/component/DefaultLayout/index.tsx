@@ -1,19 +1,27 @@
-import React, { FC, ReactElement } from "react";
-import Header from "./Header";
+import React, { FC } from "react";
 import style from "./index.module.scss";
+import Headers from "./Header";
+import SideBar from "./SideBar";
+import { Layout } from "@douyinfe/semi-ui";
+import { Outlet } from "react-router-dom";
 
-type LayoutProps = {
-  children: ReactElement;
-};
-
-const ReactComponent: FC<LayoutProps> = (props) => {
-  const { children } = props;
+const ReactComponent: FC = () => {
+  const { Header, Sider, Content } = Layout;
 
   return (
-    <>
-      <Header />
-      {children}
-    </>
+    <Layout className={style.layout}>
+      <Header>
+        <Headers />
+      </Header>
+      <Layout>
+        <Sider>
+          <SideBar />
+        </Sider>
+        <Content>
+          <Outlet />
+        </Content>
+      </Layout>
+    </Layout>
   );
 };
 export default ReactComponent;
