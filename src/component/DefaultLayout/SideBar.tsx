@@ -14,7 +14,7 @@ const ReactComponent: FC = () => {
   }, [pathname]);
   return (
     <Nav
-      style={{ height: "100%" }}
+      style={{ height: "100%", position: "fixed" }}
       selectedKeys={[selectKey]}
       items={[
         {

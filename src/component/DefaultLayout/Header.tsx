@@ -3,7 +3,7 @@ import { Nav, Avatar, Dropdown } from "@douyinfe/semi-ui";
 
 const Header: FC = () => {
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", position: "fixed" }}>
       <Nav
         mode={"horizontal"}
         items={

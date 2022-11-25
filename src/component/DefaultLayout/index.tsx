@@ -13,11 +13,11 @@ const ReactComponent: FC = () => {
       <Header>
         <Headers />
       </Header>
-      <Layout>
+      <Layout style={{ marginTop: 60 }}>
         <Sider>
           <SideBar />
         </Sider>
-        <Content>
+        <Content style={{ padding: 10 }}>
           <Outlet />
         </Content>
       </Layout>
