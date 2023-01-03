@@ -78,7 +78,7 @@ module.exports = {
 
   //webpack-dev-server 的配置信息
   devServer: {
-    // open: true,
+    // open: true,// 启动后打开浏览器
     port: 3000,
     historyApiFallback: true,
   },
